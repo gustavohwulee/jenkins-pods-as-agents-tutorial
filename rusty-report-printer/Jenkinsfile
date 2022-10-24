@@ -4,6 +4,9 @@ import groovy.transform.Field
 @Field String PROJECT_DIR = 'rusty-report-printer'
 
 pipeline {
+    environment {
+        CARGO_UNSTABLE_SPARSE_REGISTRY = 'true'
+    }
     agent {
         kubernetes {
             defaultContainer 'rust'
@@ -17,9 +20,6 @@ pipeline {
                           image: node:16.15-alpine3.16
                           command: ["sleep", "infinity"]
             '''
-        }
-        environment {
-            CARGO_UNSTABLE_SPARSE_REGISTRY = 'true'
         }
     }
 

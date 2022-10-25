@@ -16,7 +16,7 @@ pipeline {
                 spec:
                     containers:
                         - name: rust
-                          image: rustlang/rust:nightly-alpine3.12
+                          image: rustlang/rust:nightly-alpine
                           command: ["sleep", "infinity"]
                           resources:
                             requests:

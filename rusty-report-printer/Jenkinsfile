@@ -14,15 +14,15 @@ pipeline {
                 spec:
                     containers:
                         - name: rust
-                          image: rustlang/rust:nightly-alpine
+                          image: rustlang/rust:nightly-alpine3.12
                           command: ["sleep", "infinity"]
                           resources:
                             requests:
-                                cpu: 30m
-                                memory: 30Mi
+                                cpu: 100m
+                                memory: 12Mi
                             limits:
-                                cpu: 30m
-                                memory: 30Mi
+                                cpu: 1
+                                memory: 12Mi
                         - name: node
                           image: node:16.15-alpine3.16
                           command: ["sleep", "infinity"]

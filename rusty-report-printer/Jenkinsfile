@@ -18,21 +18,21 @@ pipeline {
                           command: ["sleep", "infinity"]
                           resources:
                             requests:
-                                cpu: 250m
-                                memory: 256Mi
+                                cpu: 30m
+                                memory: 30Mi
                             limits:
-                                cpu: 250m
-                                memory: 256Mi
+                                cpu: 30m
+                                memory: 30Mi
                         - name: node
                           image: node:16.15-alpine3.16
                           command: ["sleep", "infinity"]
                           resources:
                             requests:
-                                cpu: 128m
-                                memory: 128Mi
+                                cpu: 100m
+                                memory: 100Mi
                             limits:
-                                cpu: 128m
-                                memory: 128Mi
+                                cpu: 1
+                                memory: 200Mi
             '''
         }
     }

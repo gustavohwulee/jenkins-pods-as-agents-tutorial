@@ -29,10 +29,10 @@ pipeline {
                           resources:
                             requests:
                                 cpu: 100m
-                                memory: 100Mi
+                                memory: 256Mi
                             limits:
-                                cpu: 1
-                                memory: 200Mi
+                                cpu: 2
+                                memory: 256Mi
             '''
         }
     }

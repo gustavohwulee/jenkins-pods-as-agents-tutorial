@@ -11,6 +11,7 @@ pipeline {
         kubernetes {
             inheritFrom 'Node16Alpine'
             defaultContainer 'rust'
+            yamlMergeStrategy merge()
             yaml '''
                 spec:
                     containers:

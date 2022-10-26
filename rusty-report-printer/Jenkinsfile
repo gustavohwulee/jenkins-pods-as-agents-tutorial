@@ -68,12 +68,13 @@ pipeline {
             steps {
 
                 dir(PROJECT_DIR) {
-                    kaniko.buildNoPush(
-                        imageName: 'rusty-report-printer',
+                    script {
+                        kaniko.buildNoPush imageName: 'rusty-report-printer',
                         imageTag: getKanikoDestinations(),
                         context: PROJECT_DIR,
                         dockerfile: './Dockerfile',
-                    )
+
+                    }
                 }
             }
         }

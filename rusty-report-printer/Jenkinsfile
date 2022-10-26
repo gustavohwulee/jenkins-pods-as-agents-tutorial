@@ -69,10 +69,10 @@ pipeline {
 
                 dir(PROJECT_DIR) {
                     script {
-                        kaniko.buildNoPush imageName: 'rusty-report-printer',
-                        imageTag: getKanikoDestinations(),
+                        kaniko.buildNoPush(imageName: 'rusty-report-printer',
+                        imageTag: getKanikoTags(),
                         context: PROJECT_DIR,
-                        dockerfile: './Dockerfile'
+                        dockerfile: './Dockerfile')
                     }
                 }
             }
@@ -82,10 +82,10 @@ pipeline {
 
 
 
-def getKanikoDestinations() {
+def getKanikoTags() {
     def tags = [sanitizeImageTag("${env.GIT_BRANCH}-${env.GIT_COMMIT}")]
     if (isMaster()) {
         tags += 'latest'
     }
-    return tags.collect { tag -> "--destination=rusty-report-printer:${tag}" }.join(' ')
+    return tags
 }

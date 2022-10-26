@@ -83,9 +83,8 @@ pipeline {
 
 
 def getKanikoDestinations() {
-    def commitTag = sanitizeImageTag("${env.GIT_BRANCH}-${env.GIT_COMMIT}")
-    def tags = [commitTag]
-    if isMaster() {
+    def tags = [sanitizeImageTag("${env.GIT_BRANCH}-${env.GIT_COMMIT}")]
+    if (isMaster()) {
         tags += 'latest'
     }
     return tags.collect { tag -> "--destination=rusty-report-printer:${tag}" }.join(' ')
